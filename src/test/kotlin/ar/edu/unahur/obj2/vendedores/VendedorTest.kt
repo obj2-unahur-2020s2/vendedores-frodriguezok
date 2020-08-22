@@ -36,4 +36,25 @@ class VendedorTest : DescribeSpec({
       }
     }
   }
+
+  describe("Comercio Corresponsal") {
+    val buenosAires = Provincia(poblacion = 2890000)
+    val chivilcoy = Ciudad(buenosAires)
+    val bragado  = Ciudad(buenosAires)
+    val lobos = Ciudad(buenosAires)
+    val pergamino = Ciudad(buenosAires)
+    val zarate = Ciudad(buenosAires)
+    val comercio1 = ComercioCorresponsal()
+
+    comercio1.agregarSucursalesEn(chivilcoy)
+    comercio1.agregarSucursalesEn(bragado)
+    comercio1.agregarSucursalesEn(lobos)
+    comercio1.agregarSucursalesEn(pergamino)
+    comercio1.agregarSucursalesEn(zarate)
+
+    describe("Comercio1") {
+      it("es influyente"){
+      comercio1.influyente().shouldBeTrue()
+    }}
+  }
 })
