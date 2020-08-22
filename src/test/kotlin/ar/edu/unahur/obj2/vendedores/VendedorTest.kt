@@ -39,22 +39,39 @@ class VendedorTest : DescribeSpec({
 
   describe("Comercio Corresponsal") {
     val buenosAires = Provincia(poblacion = 2890000)
+    val santaFe = Provincia(poblacion = 3285170)
+    val cordoba = Provincia(poblacion = 1391000)
+    val entreRios = Provincia(poblacion = 1308000)
+
     val chivilcoy = Ciudad(buenosAires)
     val bragado  = Ciudad(buenosAires)
     val lobos = Ciudad(buenosAires)
     val pergamino = Ciudad(buenosAires)
     val zarate = Ciudad(buenosAires)
-    val comercio1 = ComercioCorresponsal()
-
-    comercio1.agregarSucursalesEn(chivilcoy)
-    comercio1.agregarSucursalesEn(bragado)
-    comercio1.agregarSucursalesEn(lobos)
-    comercio1.agregarSucursalesEn(pergamino)
-    comercio1.agregarSucursalesEn(zarate)
+    val rosario = Ciudad(santaFe)
+    val rafaela = Ciudad(santaFe)
+    val sanFrancisco = Ciudad(cordoba)
+    val diamante = Ciudad(entreRios)
+    val amstrong = Ciudad(santaFe)
 
     describe("Comercio1") {
+      val comercio1 = ComercioCorresponsal(listOf(chivilcoy,bragado,lobos,pergamino,zarate))
       it("es influyente"){
       comercio1.influyente().shouldBeTrue()
     }}
+
+    describe("Comercio2") {
+      val comercio2 = ComercioCorresponsal(listOf(rosario,rafaela,sanFrancisco,diamante))
+      it("es Influyente"){
+        comercio2.influyente().shouldBeTrue()
+      }
+    }
+
+    describe("comercio3"){
+      val comercio3 = ComercioCorresponsal(listOf(rosario,rafaela,amstrong,diamante))
+      it("no es influyente"){
+        comercio3.influyente().shouldBeFalse()
+      }
+    }
   }
 })

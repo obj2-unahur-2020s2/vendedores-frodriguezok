@@ -69,11 +69,8 @@ class Viajante(val provinciasHabilitadas: List<Provincia>) : Vendedor() {
   }
 }
 
-class ComercioCorresponsal(val ciudades: Ciudad) : Vendedor() {
+class ComercioCorresponsal(val ciudades: List<Ciudad>) : Vendedor() {
 
-  fun agregarSucursalesEn(ciudad: Ciudad){
-    ciudades.add(ciudad)
-  }
 
   override fun puedeTrabajarEn(ciudad: Ciudad): Boolean {
     return ciudades.contains(ciudad)
